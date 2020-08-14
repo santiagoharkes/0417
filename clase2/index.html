@@ -61,9 +61,75 @@ const peticion = [
     }
 ]
 
-console.log(peticion[2].publicación.titulo)
+console.log(peticion[2].publicación.titulo, peticion[2].publicación.body);
+
+// CONDICIONALES
+
+// = asignacion
+// == comprobación
+// === comprobació estricta
+
+if ( 10 == "10") {
+    console.log("dio verdadero!!!!!")
+} else {
+    console.log("dio negativo :(")
+}
 
 
+
+// ITERADORES
+
+const dias = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']
+
+console.log( dias.length, '<-----')
+
+for(let i = 0; i < dias.length; i++) {
+    // if (i=7) console.log “ya terminó el bucle”
+
+    console.log( dias[ i ] )
+}
+
+let numeroWhile = 10
+
+while ( numeroWhile < 15 ) {
+    console.log(numeroWhile)
+    numeroWhile ++
+}
+
+/*
+.filter
+.map
+.find
+.some
+
+.forEach
+*/
+// 
+
+// FUNCIONES
+
+function obtenerAlumno( argumento, argumento2 ) {
+    console.log(argumento.nombre)
+    // '' 0 false undefined null     === false
+    if (argumento2) {
+        console.log(argumento2.nombre)
+
+    }
+}
+
+const juan = {
+    nombre: "Juan",
+    nota: 10,
+    cuota: "adeuda"
+}
+const ana = {
+    nombre: "Ana",
+    nota: 10,
+    cuota: "adeuda"
+}
+
+obtenerAlumno(juan, ana)
+obtenerAlumno(ana)
 
 </script>
 </html>
