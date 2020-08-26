@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+function suma(a, b) {
+    if (typeof a !== 'number') return;
+
+    return a + b;
+}
+console.log( suma( 10, 5 ) )
+
+for (let i = 0; i < 5; i++) {
+    // if (i === 2) {
+    //     break;
+    // }
+    if (i === 2) {
+        continue;
+    }
+    console.log('hola ' + i)
+}
+
+const obj = {
+    clave1 : "valor1",
+    clave2 : "valor2",
+    clave3 : "valor3",
+    clave4 : "valor4",
+}
+
+for ( item in obj ) {
+    console.log(obj[item])
+}
+
+console.log(Object.keys(obj))
+
+const array = ['lunes', 'martes', 'miercoles', 9];
+
+const elementos = array.map(miMap);
+
+function miMap (item) {
+    return crearP(item);
+}
+
+function crearP (valor) {
+    const p = document.createElement('p');
+    p.textContent = valor;
+    return p;
+}
+
+console.log(elementos)
+
+</script>
+</html>
