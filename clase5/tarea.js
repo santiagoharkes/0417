@@ -2,62 +2,61 @@ const elementoAzul = document.querySelector("#azul");
 const elementoRojo = document.querySelector("#rojo");
 
 const azul = {
-    nombre: 'Juan Carlos Azul',
-    vida: 100,
-    fuerza: 10,
-    elemento: elementoAzul,
-    mensaje: 'Soy el azul, y muerto estás tu',
-    color: {
-        r: 0,
-        g: 0,
-        b: 255,
-        a: 1,
-    }
-}
+  nombre: "Juan Carlos Azul",
+  vida: 100,
+  fuerza: 10,
+  elemento: elementoAzul,
+  mensaje: "Soy el azul, y muerto estás tu",
+  color: {
+    r: 0,
+    g: 0,
+    b: 255,
+    a: 1,
+  },
+};
 
 const rojo = {
-    nombre: 'Juan Carlos Rojo',
-    vida: 100,
-    fuerza: 10,
-    elemento: elementoRojo,
-    mensaje: 'Soy el rojo, y gané',
-    color: {
-        r: 255,
-        g: 0,
-        b: 0,
-        a: 1,
-    }
-}
+  nombre: "Juan Carlos Rojo",
+  vida: 100,
+  fuerza: 10,
+  elemento: elementoRojo,
+  mensaje: "Soy el rojo, y gané",
+  color: {
+    r: 255,
+    g: 0,
+    b: 0,
+    a: 1,
+  },
+};
 
-azul.elemento.addEventListener('click', pelea);
-rojo.elemento.addEventListener('click', pelea);
+azul.elemento.addEventListener("click", pelea);
+rojo.elemento.addEventListener("click", pelea);
 
 function pelea(e) {
-    let golpeador;
-    let golpeado;
-    if (e.target.dataset.character === 'azul') {
-        golpeador = azul;
-        golpeado = rojo;
-    } else {
-        golpeador = rojo;
-        golpeado = azul;
-    }
+  let golpeador;
+  let golpeado;
+  if (e.target.dataset.character === "azul") {
+    golpeador = azul;
+    golpeado = rojo;
+  } else {
+    golpeador = rojo;
+    golpeado = azul;
+  }
 
-    const r = golpeado.color.r;
-    const g = golpeado.color.g;
-    const b = golpeado.color.b;
-    golpeado.color.a = golpeado.color.a - .1;
-    const a = golpeado.color.a;
+  const r = golpeado.color.r;
+  const g = golpeado.color.g;
+  const b = golpeado.color.b;
+  golpeado.color.a = golpeado.color.a - 0.1;
+  const a = golpeado.color.a;
 
-
-    golpeado.vida = golpeado.vida - golpeador.fuerza;
-    golpeado.elemento.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
-    golpeado.elemento.textContent = golpeado.vida;
-    if (golpeado.vida <= 0) {
-        alert(golpeador.mensaje);
-        golpeador.elemento.removeEventListener('click', pelea);
-        golpeado.elemento.removeEventListener('click', pelea);
-    }
+  golpeado.vida = golpeado.vida - golpeador.fuerza;
+  golpeado.elemento.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+  golpeado.elemento.textContent = golpeado.vida;
+  if (golpeado.vida <= 0) {
+    alert(golpeador.mensaje);
+    golpeador.elemento.removeEventListener("click", pelea);
+    golpeado.elemento.removeEventListener("click", pelea);
+  }
 }
 
 /*

@@ -5,7 +5,6 @@
 // //     lalala: "lalala"
 // // }
 
-
 // obj2['lalala'] = "lalala"
 
 // console.log(obj)
@@ -18,8 +17,15 @@
 
 // console.log(numero)
 
-
-const arrayMock = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo'];
+const arrayMock = [
+  "lunes",
+  "martes",
+  "miercoles",
+  "jueves",
+  "viernes",
+  "sabado",
+  "domingo",
+];
 
 // const arrayMapeado = arrayMock.map((item)=> {
 //     return `<p>${item}</p>`
@@ -67,27 +73,27 @@ const arrayMock = ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'
 // console.log('Los asistentes que fueron al baño son: ' + asistentesBano);
 
 const autos = [
-    {
-        nombre: "autito",
-        precio: '$1000'
-    },
-    {
-        nombre: "autito2",
-        precio: '$2000'
-    },
-    {
-        nombre: "autito3",
-        precio: '$30000'
-    },
-    {
-        nombre: "autito4",
-        precio: '$4000'
-    },
-]
+  {
+    nombre: "autito",
+    precio: "$1000",
+  },
+  {
+    nombre: "autito2",
+    precio: "$2000",
+  },
+  {
+    nombre: "autito3",
+    precio: "$30000",
+  },
+  {
+    nombre: "autito4",
+    precio: "$4000",
+  },
+];
 
 // const resAutos = autos.reduce((acu, item) => {
 //     const itemPrecio = Number(item.precio.substring(1));
-    
+
 //     const resultado = acu.precio > itemPrecio ? acu : Object.assign(item , { precio: itemPrecio });
 //     return resultado;
 // }, {})
@@ -101,26 +107,31 @@ const autos = [
 
 // console.log(resAutos)
 
-
-
 ////// BUBBLE Y CAPTURING
 
+const uno = document.querySelector("#uno");
+const dos = document.querySelector("#dos");
+const tres = document.querySelector("#tres");
 
-const uno = document.querySelector('#uno');
-const dos = document.querySelector('#dos');
-const tres = document.querySelector('#tres');
+uno.addEventListener("click", fnUno, true);
 
-uno.addEventListener('click', fnUno, true);
+dos.addEventListener(
+  "click",
+  function (e) {
+    console.log("dos", e.target, this);
+  },
+  true
+);
 
-dos.addEventListener('click', function(e) {
-    console.log('dos', e.target, this)
-}, true)
-
-tres.addEventListener('click', function(e) {
-    console.log('tres', e.target, this)
-}, true)
+tres.addEventListener(
+  "click",
+  function (e) {
+    console.log("tres", e.target, this);
+  },
+  true
+);
 
 function fnUno(e) {
-    // e.stopPropagation()
-    console.log('uno', e.target, this)
+  // e.stopPropagation()
+  console.log("uno", e.target, this);
 }
