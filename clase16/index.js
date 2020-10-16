@@ -1,14 +1,15 @@
 // function unis() {
-//   console.log("****************************");
-//   console.log("Más");
-//   console.log("Cosas");
-//   console.log("****************************");
+//   console.log("Unis");
 // }
 
 // function dis() {
 //   setTimeout(() => {
 //     console.log("Dos");
 //   }, 0);
+// }
+
+// function dis() {
+//   console.log("Dos");
 // }
 
 // function tris() {
@@ -23,9 +24,9 @@
 //   console.log("Cinco");
 // }
 
-// unis();
-// dis();
-// tris();
+// unis(); // Lo ejecuta
+// dis(); // Es asincrono, se lo pasa a su asistente y sigue
+// tris(); // Lo ejecuta
 // cuitri();
 // cinqui();
 
@@ -34,24 +35,49 @@
 
 // DEFINIMOS LA FUNCION
 
-const traerUsuario = (id, funcioncita) => {
-  const usuario = {
+const traerUsuario = (documento, danielita) => {
+  const usuarioDeclarado = {
     nombre: "Juancito",
-    id: id,
+    dni: documento,
   };
-  funcioncita(usuario);
+
+  if (documento === 111) {
+    danielita("No existe el usuario " + documento);
+  } else {
+    danielita(null, usuarioDeclarado);
+  }
 };
 
-// LLAMAMOS LA FUNCION
+const funcionCallback = (parametroError, deberiaUsuario) => {
+  if (parametroError) {
+    return console.log(parametroError);
+  }
+  console.log(`El dni de usuario es ${deberiaUsuario.dni}`);
+};
 
-// const callbackDeLaFuncion = (usuarito) => {
-//     console.log(`El usuario es ${usuarito}`)
-// }
+traerUsuario(111, funcionCallback);
 
-traerUsuario(2, (usuarito) => {
-  console.log(`El usuario es ${usuarito.nombre}`);
+// ***********************************************************
+// CLASE 17
+// ***********************************************************
+
+// OTRO EJEMPLO DE CALLBACK
+
+const chequearArray = (arrayPasadoPorParametro, funcionCallbackDelMal) => {
+  if (arrayPasadoPorParametro.length > 0) {
+    const franquitoMapeado = arrayPasadoPorParametro.map(
+      (itemDeMap) => itemDeMap + 1
+    );
+    funcionCallbackDelMal(null, franquitoMapeado);
+  } else {
+    funcionCallbackDelMal("LO ROMPISTE");
+  }
+};
+
+chequearArray([10, 20, 30, 40], (error, mapeado) => {
+  if (error) {
+    return console.log(error);
+  }
+  const filtrado = mapeado.filter((item) => item === 21);
+  console.log(filtrado);
 });
-
-// DUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-// NO ENTIENDO CUANDO USUARITO PASA A USUARIO :)
