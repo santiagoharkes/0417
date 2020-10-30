@@ -1,7 +1,8 @@
 const botoncitoLindo = document.getElementById("button");
 const imagenContainer = document.getElementById("imagen");
 
-botoncitoLindo.addEventListener("click", function () {});
+window.addEventListener("DOMContentLoaded", haganLaTarea);
+botoncitoLindo.addEventListener("click", haganLaTarea);
 
 const traerPewito = async () => {
   try {
@@ -18,14 +19,10 @@ const mostrarPerrito = (imagenUrl) => {
   imagenContainer.innerHTML = codigoHTML;
 };
 
-const inicializar = () => {
-  window.addEventListener("DOMContentLoaded", async () => {
-    const imageUrl = await traerPewito();
-    mostrarPerrito(imageUrl);
-  });
-};
-
-inicializar();
+async function haganLaTarea() {
+  const imageUrl = await traerPewito();
+  mostrarPerrito(imageUrl);
+}
 
 // **************************************** TAREA PARA EL HOGAR ****************************************
 // Hacer la funcion del botón
