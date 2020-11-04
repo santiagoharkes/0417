@@ -5,6 +5,10 @@ const inputFilter = document.querySelector("#filter");
 let limite = 5;
 let pagina = 1;
 
+// pagina++
+// pagina = pagina + 1
+// pagina += 1
+
 // HACEMOS EL FETCH
 const getPosts = async () => {
   const resp = await fetch(
@@ -42,14 +46,60 @@ function iniciarPerri() {
     pintarPosts(posts);
   });
 
-  window.addEventListener("scroll", () => {
+  window.addEventListener("scroll", async () => {
+    // const scrollArriba = document.documentElement.scrollTop
+    // const clientAltura = document.documentElement.clientHeight
+    // const scrollAltura = document.documentElement.scrollHeight
+
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
 
     if (scrollTop + clientHeight >= scrollHeight) {
-      console.log("Estoy en el final?");
+      // console.log("Estoy en el final?");
+      pagina++;
+
+      // En la variable nuevosPosts guardamos los proximos 5
+      let nuevosPosts = await getPosts();
+
+      // Y ahora queremos pintar esos nuevos posts
+      // pintarPosts(nuevosPosts);
+      mostrarLoader(nuevosPosts);
+    }
+  });
+
+  // otro escuchador
+  inputFilter.addEventListener("input", (e) => {
+    const loQueEscribo = e.target.value.toUpperCase();
+    const todosLosPosts = document.querySelectorAll(".post");
+
+    for (const post of todosLosPosts) {
+      const title = post.querySelector(".post-title").innerText.toUpperCase();
+      // const cuerpo = post.querySelector(".post-body").innerText.toUpperCase();
+
+      if (title.includes(loQueEscribo)) {
+        post.style.display = "flex";
+      } else {
+        post.style.display = "none";
+      }
     }
   });
 }
+
+// CREAMOS LA FUNCION PARA MOSTRAR LOADER
+// Que muestre el loader
+// Espere 3 segundos y lo saque
+// Y que pinte los nuevos posts
+
+const mostrarLoader = (algoNuevo) => {
+  loading.classList.add("show");
+
+  setTimeout(() => {
+    loading.classList.remove("show");
+
+    setTimeout(() => {
+      pintarPosts(algoNuevo);
+    }, 500);
+  }, 1000);
+};
 
 // LLAMAR A INICIAR
 iniciarPerri();
