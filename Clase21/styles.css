@@ -75,6 +75,25 @@ header h1 {
   margin-bottom: 20px;
 }
 
+.masResultados {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  width: 100px;
+  border-radius: 30px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  background: linear-gradient(350deg, #a8ff78 0%, #78ffd6 100%);
+  color: black;
+  margin: 15px;
+  cursor: pointer;
+}
+
 #form button {
   width: 20%;
   border-radius: 30px;
@@ -88,7 +107,6 @@ header h1 {
 .resultados {
   width: 80%;
   margin: 0 auto;
-  height: 100vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -119,15 +137,89 @@ audio {
 }
 
 nav {
-  width: 100%;
   height: 50px;
   background: red;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 50;
+  padding: 0 55px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+
+nav p {
+  display: none;
+}
+
+.hamburguesaIcon {
+  cursor: pointer;
+}
+
+.menuResponsive {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: deeppink;
+  top: 0;
+  left: 150vw;
+  transition: left 0.3s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuResponsive i {
+  position: absolute;
+  top: 20px;
+  right: 17vw;
+  font-size: 50px;
+  color: white;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.whatsapp {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: violet;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 2vh;
+  right: 2vh;
+}
+
+.fa-whatsapp {
+  color: white;
+  font-size: 56px;
+}
+
+.show {
+  left: 10vw;
+}
+
+.menuResponsive ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuResponsive ul li {
+  font-size: 55px;
+  color: black;
+  margin: 20px;
 }
 
 @media screen and (max-width: 500px) {
@@ -149,5 +241,14 @@ nav {
   }
   #form button {
     width: 60%;
+  }
+}
+
+@media screen and (max-width: 728px) {
+  nav > ul {
+    display: none;
+  }
+  nav p {
+    display: block;
   }
 }

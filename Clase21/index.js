@@ -1,8 +1,17 @@
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const resultados = document.getElementById("resultados");
+const botonesMasMenos = document.querySelector(".masResultados");
+const menuResponsive = document.getElementById("menuResponsive");
 
 const URL = "https://api.lyrics.ovh";
+
+const mostrarMenu = () => {
+  // Hacer un toggle
+  // A qué?
+  // Que clase le agregamos?
+  menuResponsive.classList.toggle("show");
+};
 
 // Funcion de buscar canciones
 const getSongs = (value) => {
@@ -32,9 +41,30 @@ const pintarCanciones = (resultado) => {
     .join("")}
   </ul>`;
 
-  console.log(canciones);
-
   resultados.innerHTML = canciones;
+
+  if (resultado.next || resultado.prev) {
+    botonesMasMenos.innerHTML = `
+      ${
+        resultado.prev
+          ? `<button onclick="haceAlgo('${resultado.prev}')">Anterior</button>`
+          : ``
+      }
+      ${
+        resultado.next
+          ? `<button onclick="haceAlgo('${resultado.next}')">Siguiente</button>`
+          : ``
+      }
+    `;
+  }
+};
+
+const haceAlgo = async (direccion) => {
+  const urlParaFetchear = "https://cors-anywhere.herokuapp.com/" + direccion;
+  const haceAlgoMierda = await fetch(urlParaFetchear);
+  const aBerrrrrr = await haceAlgoMierda.json();
+
+  pintarCanciones(aBerrrrrr);
 };
 
 // Funcion iniciar
