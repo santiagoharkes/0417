@@ -135,7 +135,7 @@ audio {
   height: 30px;
   max-width: 50%;
 }
-
+/* 
 nav {
   height: 50px;
   background: red;
@@ -220,7 +220,7 @@ nav p {
   font-size: 55px;
   color: black;
   margin: 20px;
-}
+} */
 
 @media screen and (max-width: 500px) {
   .resultados ul li {
