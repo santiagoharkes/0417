@@ -103,7 +103,9 @@
 //   );
 // };
 
-// // Call, Apply, y Bind
+// // // Call, Apply, y Bind
+
+// // funcioncita(, "uno", "dos", "tres", "cuatro")
 
 // funcioncita.call(dani, meGusta[0], meGusta[1], "Jupiter");
 // funcioncita.apply(winiPu, [...meGusta, "Futbol", "Voley", "Hockey"]);
@@ -138,22 +140,57 @@
 //   daniMala.edad++;
 // };
 
-function crearUsuario(nombre, apellido, edad) {
-  const usuario = {};
-  usuario.nombre = nombre;
-  usuario.apellido = apellido;
-  usuario.edad = edad;
-  usuario.cumple = function () {
-    usuario.edad++;
-  };
+// function crearUsuario(nombre, apellido, edad) {
+//   const usuario = {};
+//   usuario.nombre = nombre;
+//   usuario.apellido = apellido;
+//   usuario.edad = edad;
+//   usuario.cumple = function () {
+//     usuario.edad++;
+//   };
 
-  return usuario;
+//   return usuario;
+// }
+
+// const daniBuena = crearUsuario("Dani", "Buena", 45);
+// const daniMala = crearUsuario("Dani", "Mala", 45);
+
+// console.log(daniBuena);
+// console.log(daniMala);
+// daniMala.cumple();
+// console.log(daniMala.edad);
+
+// const aislamosMetodos = {
+//   cumple: function () {
+//     this.edad++;
+//   },
+//   saludar: function () {
+//     console.log(`Hola soy ${this.nombre}`);
+//   },
+// };
+
+function crearUsuario(nombre, apellido, edad) {
+  // La palabra NEW va a hacer esto por nosotros
+  // const usuario = Object.create(crearUsuario.prototype)
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.edad = edad;
+  // NEW también va a retornar por nosotros
+  // return usuario
 }
 
-const daniBuena = crearUsuario("Dani", "Buena", 45);
-const daniMala = crearUsuario("Dani", "Mala", 45);
+crearUsuario.prototype.decirApellido = function () {
+  console.log(`Mi apellido es ${this.apellido}`);
+};
+
+crearUsuario.prototype.cunplianito = function () {
+  this.edad++;
+};
+
+const daniBuena = new crearUsuario("Dani", "Buena", 45);
+const daniMala = new crearUsuario("Dani", "Mala", 23);
 
 console.log(daniBuena);
 console.log(daniMala);
-daniMala.cumple();
-console.log(daniMala.edad);
+
+// new
