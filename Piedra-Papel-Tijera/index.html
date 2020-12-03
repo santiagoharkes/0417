@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Piedra, Papel, o Tijera</title>
+  </head>
+  <body>
+    <section class="game">
+      <div class="score">
+        <div class="player-score">
+          <h2>Jugador</h2>
+          <p>0</p>
+        </div>
+        <div class="computer-score">
+          <h2>La maquina wacho</h2>
+          <p>0</p>
+        </div>
+      </div>
+
+      <div class="intro">
+        <h1>Piedra, Papel, o Tijera</h1>
+        <button>Vamo' a juga'</button>
+      </div>
+
+      <div class="partido desvanecer">
+        <h2 class="ganador">Elegí... estoy seguro de que perderás</h2>
+        <div class="manos">
+          <img class="mano-jugador" src="./assets/piedra.png" alt="" />
+          <img class="mano-computadora" src="./assets/piedra.png" alt="" />
+        </div>
+        <div class="opciones">
+          <button class="piedra" data-eleccion="piedra">Piedra</button>
+          <button class="papel" data-eleccion="papel">Papel</button>
+          <button class="tijera" data-eleccion="tijera">Tijera</button>
+        </div>
+      </div>
+      <div class="lights">
+        <div class="light-box light light-1"></div>
+        <div class="light-box light light-2"></div>
+        <div class="light-box light-sides"></div>
+        <div class="light-box light-sides small"></div>
+        <div class="nucba-logo-container">
+          <img src="./assets/nucba-logo.png" alt="" class="nucba-logo" />
+        </div>
+      </div>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
