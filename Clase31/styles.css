@@ -1,0 +1,15 @@
+.botoncito {
+  padding: 40px;
+  border: 1px solid black;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+.botoncitoDos {
+  padding: 40px;
+  border: 1px solid black;
+  background: red;
+  color: white;
+  cursor: pointer;
+}

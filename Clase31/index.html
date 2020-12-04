@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="root" class="algoPalCSS"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <!-- PRINCIPIOS QUE VAMOS A EMPEZAR A VER -->
+    <!-- COMPONENTES, PROPIEDADES, JSX, ESTADO -->
+
+    <script>
+      //   const Juancito = () => {
+      // LAS FUNCIONES QUE CREAN COMPONENTES SIEMPRE RETORNAN ALGO
+      // SOLAMENTE UNA COSA
+
+      // return React.createElement(
+      //   "div",
+      //   { className: "algoPalCSS desdeUnDiv", id: "idDelDiv" },
+      //   "Holis"
+      // );
+
+      // createElement, va a recibir tres parametros
+      // primer parametro: etiqueta o componente
+      // segundo parametro (objeto): atributos o propiedades
+      // tercer parametro (array): hijos
+      //   };
+
+      const App = () => {
+        const otraFuncion = () => {
+          console.log("holis");
+        };
+
+        return React.createElement(
+          "div",
+          { id: "componenteApp", className: "holis" },
+          [
+            React.createElement(
+              Titulo,
+              { ornitorrinco: "Titulo UNO desde propiedades" },
+              []
+            ),
+            React.createElement(
+              Titulo,
+              { ornitorrinco: "Titulo DOS desde propiedades" },
+              []
+            ),
+            React.createElement(
+              Titulo,
+              { ornitorrinco: "Titulo TRES desde propiedades" },
+              []
+            ),
+            React.createElement(
+              Titulo,
+              { ornitorrinco: "Titulo CUATRO desde propiedades" },
+              []
+            ),
+            React.createElement(OtroTitulo, {}, []),
+            React.createElement(Botoncito, {
+              clase: "botoncito",
+              haceClick: otraFuncion,
+            }),
+            React.createElement(Botoncito, {
+              clase: "botoncitoDos",
+              haceClick: () => {
+                console.log("holis soy el botoncito dos");
+              },
+            }),
+            React.createElement(Botoncito, {
+              clase: "botoncito",
+              haceClick: () => {
+                console.log("holis soy el botoncito tres");
+              },
+            }),
+          ]
+        );
+      };
+
+      const Titulo = ({ ornitorrinco }) => {
+        return React.createElement(
+          "h1",
+          { id: "componenteTitulo" },
+          ornitorrinco
+        );
+      };
+
+      const OtroTitulo = () => {
+        return React.createElement(
+          "h4",
+          { id: "componenteOtroTitulo" },
+          "Subtitulo desde componente"
+        );
+      };
+
+      const Botoncito = (props) => {
+        return React.createElement(
+          "button",
+          { className: props.clase, onClick: props.haceClick },
+          "Botoncito"
+        );
+      };
+
+      const Titulo = (props) => {
+        return React.createElement(
+          React.Fragment,
+          null,
+          React.createElement(
+            "h1",
+            {
+              className: "Hola",
+              id: "sdjfndf",
+            },
+            "Holis"
+          ),
+          React.createElement("h2", null, props.title),
+          React.createElement(OtroTitulo, {
+            title: "holis",
+            ornitorrinco: "sdjfnsdjfsdfn",
+          })
+        );
+      };
+
+      // Al metodo .render de ReactDOM le vamos a decir QUE pintar y DONDE pintarlo
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
