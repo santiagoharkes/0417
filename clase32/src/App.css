@@ -1,0 +1,9 @@
+.home {
+  width: 100vw;
+  height: 50vh;
+  background-color: salmon;
+}
+
+.home h1 {
+  margin: 0;
+}
