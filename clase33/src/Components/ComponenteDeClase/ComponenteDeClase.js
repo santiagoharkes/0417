@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 class Contador extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = { contador: 1 };
+    this.state = { contador: this.props.numerito };
 
     setInterval(() => {
       this.setState({ contador: this.state.contador + 1 });
@@ -12,7 +12,11 @@ class Contador extends Component {
   }
 
   render() {
-    return <h1> {this.state.contador} </h1>;
+    return (
+      <h1>
+        {this.props.texto} {this.state.contador}{" "}
+      </h1>
+    );
   }
 }
 
