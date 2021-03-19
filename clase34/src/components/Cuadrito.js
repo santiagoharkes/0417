@@ -4,6 +4,13 @@ import React, { useState, useEffect } from "react";
 
 function Cuadrito() {
   const [color, setColor] = useState("#ffaeae");
+  const [data, setData] = useState({});
+  const [data, setData] = useState({});
+  const [data, setData] = useState({});
+  const [data, setData] = useState({});
+  const [data, setData] = useState({});
+  const [data, setData] = useState({});
+  const [data, setData] = useState({});
 
   useEffect(() => {
     function movimientoMouse(e) {
@@ -13,14 +20,21 @@ function Cuadrito() {
         setColor("#ffaeae");
       }
     }
+
     window.addEventListener("mousemove", movimientoMouse);
+
     console.log("Se montó el componente");
 
     return () => {
       console.log("Se desmontó el componente");
       window.removeEventListener("mousemove", movimientoMouse);
     };
-    
+  }, []);
+
+  useEffect(() => {
+    fetch(url)
+      .then((valor) => valor.json())
+      .then((data) => setData(data));
   }, []);
 
   return (
