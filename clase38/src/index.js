@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Home from "./Home";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import Dealer from "./context/TitleProvider";
+import AlgunProvider from "./context/AlgunContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Dealer>
-      <Home />
-    </Dealer>
+    <AlgunProvider>
+      <App />
+    </AlgunProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

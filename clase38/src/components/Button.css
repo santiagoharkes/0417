@@ -1,0 +1,8 @@
+.botoncito {
+  width: 200px;
+  height: 200px;
+  background-color: salmon;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
