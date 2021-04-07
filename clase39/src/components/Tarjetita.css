@@ -1,0 +1,17 @@
+.tarjetita {
+  background-color: var(--fondo);
+  color: var(--texto);
+  border: 1px solid var(--border);
+  transition: all 0.5s ease;
+}
+
+.tarjetita h2 {
+  color: var(--titulo);
+  transition: all 0.5s ease;
+}
+
+.tarjetita button {
+  background-color: var(--principal);
+  transition: all 0.5s ease;
+  color: var(--texto);
+}
