@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SongsContext } from "../../context/SongsContext";
 
-function Lyric({ artist, song, lyrics }) {
+function Lyric() {
+  const { loading, lyric, artist, songTitle } = useContext(SongsContext);
+
   return (
     <div>
       <h2>
-        <strong>{artist}</strong> - {song}
+        <strong>{artist}</strong> - {songTitle}
       </h2>
-      <span>{lyrics}</span>
+      <span>{lyric}</span>
     </div>
   );
 }
