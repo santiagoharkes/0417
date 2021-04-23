@@ -5,7 +5,7 @@ export const foodItems = [
     img: "/img/pizza1.jpg",
     section: "Pizzas",
     description: "La pizza más cheta del condado",
-    price: 100,
+    price: 10000,
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ export const foodItems = [
   },
   {
     id: 3,
-    name: "Pizza Mix",
+    name: "Pizza Mix NO ES UNA COPIA",
     img: "/img/pizza2.jpg",
     section: "Pizzas",
     description:
@@ -45,7 +45,7 @@ export const foodItems = [
   },
   {
     id: 6,
-    name: "Burger Zarpada",
+    name: "Burger Zarpada NO ES UNA COPIA",
     img: "/img/burger1.jpg",
     section: "Burgers",
     description:
@@ -72,7 +72,7 @@ export const foodItems = [
   },
   {
     id: 9,
-    name: "Sambuchito 1",
+    name: "Sambuchito 1 NO ES UNA COPIA",
     img: "/img/sanbu1.jpg",
     section: "Sambuchitos",
     description:
@@ -82,11 +82,11 @@ export const foodItems = [
 ];
 
 export const Foods = foodItems.reduce((res, food) => {
-    if (!res[food.section]) {
-        res[food.section] = []
-    }
+  if (!res[food.section]) {
+    res[food.section] = [];
+  }
 
-    res[food.section] = [...res[food.section], food]
+  res[food.section] = [...res[food.section], food];
 
-    return res
-}, {})
+  return res;
+}, {});
