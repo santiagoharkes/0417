@@ -9,7 +9,12 @@ import {
   DialogShow,
 } from "./FoodDialogStyles";
 
-function FoodDialogPepito({ openFood, setOpenFood }) {
+import { useDispatch } from "react-redux";
+import * as cartActions from "../../redux/cart/cartActions";
+
+function FoodDialogPepito({ openFood, setOpenFood, orders, setOrders }) {
+  const dispatch = useDispatch();
+
   const handleClose = (e) => {
     if (e.target.id === "food__dialog") {
       setOpenFood();
@@ -17,6 +22,7 @@ function FoodDialogPepito({ openFood, setOpenFood }) {
   };
 
   const addToOrder = () => {
+    dispatch(cartActions.addItem(openFood));
     setOpenFood();
   };
 

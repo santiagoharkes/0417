@@ -1,22 +1,32 @@
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 import Navbar from "./Components/Navbar/Navbar";
-import Banner from "./Components/Banner/Banner";
-import Menu from "./Components/Menu/Menu";
+import Orders from "./Components/Orders/Orders";
 import { useOpenFood } from "./hooks/useOpenFood";
-import { FoodDialog } from "./Components/FoodDialog/FoodDialog";
+import { useOrders } from "./hooks/useOrders";
+
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const openFood = useOpenFood();
+  const orders = useOrders();
 
   return (
-    <div>
+    <>
       <GlobalStyles />
-      <FoodDialog {...openFood} />
       <Navbar />
-      <Banner />
-      <Menu {...openFood} />
-    </div>
+      <Orders {...orders} />
+      <Switch>
+        <Route exact path="/">
+          <Home openFood={openFood} orders={orders} />
+        </Route>
+        <Route exact path="/checkout">
+          <Checkout />
+        </Route>
+      </Switch>
+    </>
   );
 }
 

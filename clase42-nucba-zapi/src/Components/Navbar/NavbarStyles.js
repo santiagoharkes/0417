@@ -29,3 +29,10 @@ export const Logo = styled.img`
   height: auto;
   max-height: 100%;
 `;
+
+export const NavigationMenu = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding-right: 20px;
+`;

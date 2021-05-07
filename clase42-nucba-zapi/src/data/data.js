@@ -81,6 +81,21 @@ export const foodItems = [
   },
 ];
 
+export const arraySections = [
+  {
+    section: "Pizzas",
+    imgTag: "img/tag_pizza.jpeg",
+  },
+  {
+    section: "Burgers",
+    imgTag: "img/tag_burger.jpeg",
+  },
+  {
+    section: "Sambuchitos",
+    imgTag: "img/tag_sambu.jpeg",
+  },
+];
+
 export const Foods = foodItems.reduce((res, food) => {
   if (!res[food.section]) {
     res[food.section] = [];

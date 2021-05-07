@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ContainerStyled } from "../../styles/utilities/Container";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 export const MenuStyled = styled.div`
   height: auto;
@@ -89,4 +90,50 @@ export const FoodLabel = styled.div`
   background-color: #00000070;
   width: 100%;
   z-index: 1;
+`;
+
+export const TagsMenu = styled(ScrollContainer)`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-x: scroll;
+  margin: 20px 0;
+  padding: 20px 0;
+
+  @media screen and (max-width: 600px) {
+    justify-content: flex-start;
+  }
+`;
+
+export const TagCard = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => (props.selected ? "red" : "#fff")};
+  color: gray;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 0 10px;
+  &:hover {
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.09);
+  }
+`;
+
+export const TagImg = styled.div`
+  border-radius: 50%;
+  background-image: ${({ img }) => `url(${img})`};
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+`;
+
+export const TagImgTodos = styled.div`
+  border-radius: 50%;
+  background: red;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
 `;
