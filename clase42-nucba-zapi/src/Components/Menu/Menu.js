@@ -32,8 +32,6 @@ function Menu({ openFood, setOpenFood }) {
     Foods = { [section]: Foods[section] };
   }
 
-  console.log({ section });
-
   return (
     <MenuStyled>
       <ContainerMenu>
@@ -47,8 +45,9 @@ function Menu({ openFood, setOpenFood }) {
             </TagCard>
           )}
 
-          {categories.map((category) => (
+          {categories.map((category, index) => (
             <TagCard
+              key={index}
               onClick={() => setSection(category.section)}
               selected={category.section === section}
             >
@@ -58,19 +57,19 @@ function Menu({ openFood, setOpenFood }) {
           ))}
         </TagsMenu>
 
-        {Object.entries(Foods).map(([section, foods]) => {
+        {Object.entries(Foods).map(([section, foods], index) => {
           return (
-            <>
+            <div key={index}>
               <SubtitleStyled>{section}</SubtitleStyled>
               <FoodGrid>
-                {foods.map((comidita) => (
-                  <Food onClick={() => setOpenFood(comidita)}>
+                {foods.map((comidita, index) => (
+                  <Food key={index} onClick={() => setOpenFood(comidita)}>
                     <FoodImage src={comidita.img} />
                     <FoodLabel>{comidita.name}</FoodLabel>
                   </Food>
                 ))}
               </FoodGrid>
-            </>
+            </div>
           );
         })}
       </ContainerMenu>

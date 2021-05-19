@@ -21,11 +21,13 @@ import {
   DialogShow,
 } from "../FoodDialog/FoodDialogStyles";
 import HandleQuantity from "./HandleQuantity";
+import { Link, useHistory } from "react-router-dom";
 
 function Orders() {
   const dispatch = useDispatch();
   const hidden = useSelector((state) => state.cart.hidden);
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const history = useHistory();
 
   const handleToggle = () => {
     dispatch(cartActions.toggleCartHidden());
@@ -34,6 +36,11 @@ function Orders() {
   const total = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
+
+  const irAPagar = () => {
+    dispatch(cartActions.toggleCartHidden());
+    history.push("/checkout");
+  };
 
   return (
     <>
@@ -45,8 +52,8 @@ function Orders() {
           <OrderContent>
             <OrderContainer>Tu pedido:</OrderContainer>
 
-            {cartItems.map((item) => (
-              <OrderContainer>
+            {cartItems.map((item, index) => (
+              <OrderContainer key={index}>
                 <OrderItems>
                   <ItemImg img={item.img} />
                   <div>
@@ -63,7 +70,9 @@ function Orders() {
           </OrderContent>
         )}
         <DialogFooter>
-          <ConfirmButton>Ir a pagar {formatPrice(total)}</ConfirmButton>
+          <ConfirmButton onClick={irAPagar}>
+            Ir a pagar {formatPrice(total)}
+          </ConfirmButton>
         </DialogFooter>
       </OrderStyled>
     </>
